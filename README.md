@@ -21,6 +21,8 @@ This botnet use cURL to get payload from FTP server, so... please prepair your F
 Raw socket programming is really hard for me and I don't know about exploit development,
 But raw socket need it(exploit) to get a permission for run it. So in <strong>The volumetric</strong> all of them are a simple udp and icmp flood. so DDoS function is really hard and challenge for me.
 
+<img src="img/udptraffic.png" alt="udp flood, dos example">
+
 # IRC Commands
 <ul>
   <li><strong>?http [url]</li></strong>
