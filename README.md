@@ -35,7 +35,8 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
   <li><strong>?udp [ip] [size]</li></strong>
     <ul>
       <li>?udp 192.168.1.16 500</li>
-      - Flood UDP packets by random src and dst port to target. Min and Max of Buffer is 1 - 700bytes.
+      - Flood UDP packets by random src and dst port to target. 
+        Min and Max of Buffer is 1 - 700bytes.
     </ul>
 </ul>
 
