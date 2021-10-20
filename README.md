@@ -5,6 +5,8 @@ This is my first IRC bot for launch ddos attack, Write on Go language. For educa
 
 <strong>IRC commands are in the bottom of The page.</strong>
 
+<img src="img/drfate.png" alt="Dr Fate">
+
 # Infect
 The infect function of this botnet is scanning by SSH port<strong>(default as 22)</strong> and login by dictionary attack.
 like username "admin" and password "123456". <strong>(Scan by range of CHN network. You can add more if you want.)</strong>
