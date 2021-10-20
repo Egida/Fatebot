@@ -44,7 +44,7 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
   <li><strong>?icmp [ip]</li></strong>
     <ul>
       <li>?icmp 192.168.1.16</li>
-      - Flood ICMP packets to target.(I know it's a old school DoS, lol.)
+      - Flood ICMP with large packets to target.
     </ul>
 </ul>
 
