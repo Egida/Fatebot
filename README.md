@@ -14,7 +14,7 @@ like username "admin" and password "123456". <strong>(Scan by range of CHN netwo
 This botnet use cURL to get payload from FTP server, so... please prepair your FTP server first, It very important for infect process.
 
 <strong>[SCAN PROCESS]</strong>
-<img src="img/scan process.png" alt="SSH scan">
+<img src="img/scanprocess.png" alt="SSH scan">
 
 
 # DDoS
