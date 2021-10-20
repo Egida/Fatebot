@@ -26,7 +26,7 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 <ul>
   <li><strong>?http [url]</li></strong>
     <ul>
-      <li>?http https://target.com/</li>
+      <li>?http https://target.com</li>
       - Flood HTTP get request to target.
     </ul>
 </ul>
