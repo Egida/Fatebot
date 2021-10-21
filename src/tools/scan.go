@@ -14,7 +14,7 @@ var Scan_Switch bool
 
 /*
 If you don't know how to add more IP range or Usernames and Passwords.
-You can watch it in original github page. ~> https://github.com/R4bin/Doombot
+You can watch it in original github page. ~> https://github.com/R4bin/
 (In case that you didn't download from github page.)
 */
 

