@@ -18,7 +18,7 @@ This botnet use cURL to get payload from FTP server, so... please prepair your F
 
 # DDoS
 Raw socket programming is really hard for me, And i don't know how to get a permission for run payload.
-That's why <strong>The volumetric</strong> all of them are a simple udp and icmp flood. so DDoS function is really hard and challenge for me.
+That's why all of <strong>The volumetric</strong> are a simple like udp and icmp flood. so DDoS function is really hard and challenge for me.
 
 <img src="img/udptraffic.png" alt="udp flood, dos example">
 
