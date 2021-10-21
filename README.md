@@ -34,8 +34,8 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
   <li><strong>?udp [ip] [size]</li></strong>
     <ul>
       <li>?udp 192.168.1.16 500</li>
-      <p>- Flood UDP packets by random src and dst port to target.</p> 
-      <p>- Min and Max of Buffer is 1 - 700bytes.</p>
+      <p>- Flood UDP packets by random src and dst port to target. 
+      - Min and Max of Buffer is 1 - 700bytes.</p>
     </ul>
 </ul>
 
