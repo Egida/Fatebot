@@ -52,7 +52,7 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
   <li><strong>?fate [url]</li></strong>
     <ul>
       <li>?fate https://target.com</li>
-      - Use all DDoS function to attack target, By set every size to max.
+      - Use all DDoS function to attack target.
     </ul>
 </ul>
 
