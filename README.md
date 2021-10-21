@@ -49,10 +49,10 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 </ul>
 
 <ul>
-  <li><strong>?fate [url] [udp size]</li></strong>
+  <li><strong>?fate [url]</li></strong>
     <ul>
-      <li>?icmp 192.168.1.16 700</li>
-      - Use all DDoS function to attack target.
+      <li>?fate https://target.com</li>
+      - Use all DDoS function to attack target, By set every size to max.
     </ul>
 </ul>
 
