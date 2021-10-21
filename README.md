@@ -49,10 +49,10 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 </ul>
 
 <ul>
-  <li><strong>?iau [ip] [udp size]</li></strong>
+  <li><strong>?fate [url] [udp size]</li></strong>
     <ul>
       <li>?icmp 192.168.1.16 700</li>
-      - Flood ICMP and UDP packets to target.
+      - Use all DDoS function to attack target.
     </ul>
 </ul>
 
