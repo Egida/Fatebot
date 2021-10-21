@@ -31,7 +31,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 </ul>
 
 <ul>
-  <li><strong>?post [url]</li></strong> [RECOMMEND]
+  <li><strong>?post [url]</li></strong>
     <ul>
       <li>?post https://target.com</li>
       - Flood HTTP post request to target.
