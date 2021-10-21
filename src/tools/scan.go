@@ -49,7 +49,7 @@ func ManageIP_range(mainRange, setRange string) string {
 	ipGen = append(ipGen, setRange, ".")
 
 	for i := 0; i < 2; i++ {
-		ipGen = append(ipGen, GenRange(6, 0), ".")
+		ipGen = append(ipGen, GenRange(255, 0), ".")
 	}
 
 	ipGen[len(ipGen)-1] = ""
