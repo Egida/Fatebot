@@ -49,6 +49,14 @@ But raw socket need it(exploit) to get a permission for run it. In <strong>The v
 </ul>
 
 <ul>
+  <li><strong>?iau [ip] [udp size]</li></strong>
+    <ul>
+      <li>?icmp 192.168.1.16 700</li>
+      - Flood ICMP and UDP packets to target.
+    </ul>
+</ul>
+
+<ul>
   <li><strong>?scan [ftp server]</li></strong>
     <ul>
       <li>?scan ftp://192.186.1.16/payload</li>
