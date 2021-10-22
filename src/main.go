@@ -54,7 +54,7 @@ func main() {
 		ircRead, err := tp.ReadLine()
 		fmt.Println(ircRead)
 
-		//Server struct interact
+		//Server signal interact
 		go func() {
 			if err != nil {
 				selfKill()
