@@ -37,7 +37,7 @@ const (
 	//Private ip
 	priv = "192." //192.168.0.0 - 192.168.255.255
 
-	//Black list ip
+	//Blacklist ip
 	bl1 = "192.168.1.1:22"
 	bl2 = "192.168.1.16:22"
 )
