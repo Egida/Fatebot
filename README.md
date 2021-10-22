@@ -13,7 +13,7 @@ like username "admin" and password "admin". <strong>(Scan by range of CHN networ
 This botnet use curl to get payload from FTP server, so... please prepair your FTP server first, It very important for infect process.
 
 <strong>I scan on my private netowrk in SSH range, And comment an running ssh session.</strong>
-<p><strong>(That's why bot is not join The server.)</p></strong>
+<strong>(That's why bot is not join The server.)</strong>
 <img src="img/scanprocess.png" alt="SSH scan">
 
 
