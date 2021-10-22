@@ -25,7 +25,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 <ul>
   <li><strong>?get [url]</li></strong>
     <ul>
-      <li>?get https://target.com</li>
+      <li>?get http://target.com</li>
       - Flood HTTP get request to target.
     </ul>
 </ul>
@@ -33,7 +33,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 <ul>
   <li><strong>?post [url]</li></strong>
     <ul>
-      <li>?post https://target.com</li>
+      <li>?post http://target.com</li>
       - Flood HTTP post request to target.
     </ul>
 </ul>
