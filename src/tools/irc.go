@@ -37,8 +37,8 @@ func IRC_Login(log_serv net.Conn, set_chan, set_chan_pass string) {
 	botID := rand.Intn(1000000)
 
 	formation := logFormation{
-		user: fmt.Sprint("USER FATE|", botID, " 8 * :bot"),
-		nick: fmt.Sprint("NICK FATE|", botID),
+		user: fmt.Sprint("USER |FATE|", botID, "|", " 8 * :bot"),
+		nick: fmt.Sprint("NICK |FATE|", botID, "|"),
 	}
 
 	//login to server
