@@ -25,7 +25,6 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 -----------------------------------------------------------------------
 go build -o [payload] main.go
 ./[payload]
------------------------------------------------------------------------
 
 # IRC Commands
 <ul>
