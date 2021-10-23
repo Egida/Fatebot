@@ -17,10 +17,10 @@ import (
 //////////////////////////////////////////////////////////////////////////
 
 const (
-	IRC_Server        = "192.168.1.4:6667" //config IRC server and port here.
-	IRC_Channel       = "#Test "           //config channel here //should have space!!!
-	IRC_Chan_Password = "3#D}X]kuxT$ "     //config channel password here.
-	Payload_Name      = "payload"          //config payload name //default is "payload"
+	IRC_Server        = "" //config IRC server and port here.
+	IRC_Channel       = "" //config channel here //should have space!!!
+	IRC_Chan_Password = "" //config channel password here.
+	Payload_Name      = "" //config payload name
 )
 
 //////////////////////////////////////////////////////////////////////////
