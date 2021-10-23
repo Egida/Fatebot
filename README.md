@@ -23,6 +23,7 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 
 # How to use
 go build -o [payload] main.go
+
 ./[payload]
 
 # IRC Commands
