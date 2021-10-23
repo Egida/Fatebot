@@ -22,8 +22,8 @@ Raw socket programming is really hard for me. That's why all of <strong>The volu
 <img src="media/posttraffic.png" alt="http post flood, dos example">
 
 # How to use
-go build -o <payload> main.go
-./<payload>
+go build -o <p><payload></p> main.go
+<p>./<payload></p>
 
 # IRC Commands
 <ul>
